@@ -1,0 +1,14 @@
+{
+  "servicerestart": "service unifi restart",
+  "serviceget": "/usr/local/bin/unifiget",
+  "serviceset": "/usr/local/bin/unifiset",
+  "options": {
+    "unifi_poller_enable": {
+      "type": "bool",
+      "name": "Unifi Poller Enable",
+      "description": "Enable Unifi Poller plugin",
+      "default": true,
+      "requirerestart": false
+    }
+  }
+}
