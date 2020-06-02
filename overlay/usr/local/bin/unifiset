@@ -2,8 +2,6 @@
 
 
 enable_unifi_poller_service() {
-    poller_enabled = $1
-
     if [ "$poller_enabled" = "true" ]
     then
         if ! pkg info -q unifi-poller
@@ -24,7 +22,8 @@ enable_unifi_poller_service() {
 
 if [ "$1" == "unifi_poller_enable" ]
 then
-    enable_unifi_poller_service $2
+    poller_enabled="$2"
+    enable_unifi_poller_service
 else
     echo "Unknwon option"
 fi
