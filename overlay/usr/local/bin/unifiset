@@ -22,10 +22,10 @@ stop_unifi_poller() {
 unifi_poller() {
     if [ "$poller_enabled" = "true" ]
     then
-       start_unifi_poller()
+        start_unifi_poller
     elif [ "$poller_enabled" = "false" ]
     then
-        stop_unifi_poller()
+        stop_unifi_poller
     else
         echo "Invalid unifi_poller_enable value. Accepted values: true/false"
         exit 1
@@ -35,7 +35,7 @@ unifi_poller() {
 if [ "$1" == "unifi_poller_enable" ]
 then
     poller_enabled="$2"
-    unifi_poller()
+    unifi_poller
 else
-    echo "Unknwon option"
+    echo "Unknown option"
 fi
