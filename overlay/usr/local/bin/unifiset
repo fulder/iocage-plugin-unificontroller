@@ -1,11 +1,16 @@
 #!/bin/sh
 
-enable_unifi_poller_service() {
+
+
+unifi_poller() {
     if [ "$poller_enabled" = "true" ]
     then
-        sysrc -f /etc/rc.conf unifi_poller_enable="YES"
-        service unifi-poller start
-        echo "Make sure to configure unifi_poller using /usr/local/etc/unifi-poller/up.conf"
+        if ! sysrc -c -q unifi_poller_enable
+        then
+            sysrc -f /etc/rc.conf unifi_poller_enable="YES"
+            service unifi-poller start
+            echo "Make sure to configure unifi_poller using /usr/local/etc/unifi-poller/up.conf"
+        fi
     elif [ "$poller_enabled" = "false" ]
     then
         if sysrc -c -q unifi_poller_enable
@@ -22,7 +27,7 @@ enable_unifi_poller_service() {
 if [ "$1" == "unifi_poller_enable" ]
 then
     poller_enabled="$2"
-    enable_unifi_poller_service
+    unifi_poller()
 else
     echo "Unknwon option"
 fi
