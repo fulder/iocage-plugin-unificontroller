@@ -1,5 +1,5 @@
 get_unifi_poller_status() {
-    if service unifi-poller status > /dev/null
+    if sysrc -c -q unifi_poller_enable
     then
         echo "unifi_poller_enable=true"
     else
