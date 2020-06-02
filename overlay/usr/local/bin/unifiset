@@ -7,6 +7,7 @@ enable_unifi_poller_service() {
         service unifi-poller start
         echo "Make sure to configure unifi_poller using /usr/local/etc/unifi-poller/up.conf"
     elif [ "$poller_enabled" = "false" ]
+    then
         service unifi-poller stop
         sysrc -f /etc/rc.conf -x unifi_poller_enable
     else
