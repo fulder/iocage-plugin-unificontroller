@@ -5,10 +5,11 @@ start_unifi_poller() {
     then
        sysrc -f /etc/rc.conf unifi_poller_enable="YES"
        service unifi-poller start
-       echo "Make sure to configure unifi_poller using /usr/local/etc/unifi-poller/up.conf"
     else
        echo "Unifi poller already started no-op"
     fi
+
+    echo "Make sure to configure unifi_poller using /usr/local/etc/unifi-poller/up.conf"
 }
 
 stop_unifi_poller() {
