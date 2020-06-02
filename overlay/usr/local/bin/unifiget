@@ -9,7 +9,6 @@ get_unifi_poller_status() {
     fi
 }
 
-
 if [ "$1" == "unifi_poller_enable" ]
 then
     get_unifi_poller_status

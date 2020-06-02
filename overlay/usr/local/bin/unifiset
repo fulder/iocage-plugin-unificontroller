@@ -16,6 +16,8 @@ stop_unifi_poller() {
     then
         service unifi-poller stop
         sysrc -f /etc/rc.conf -x unifi_poller_enable
+    else
+        echo "Unifi poller already stopped, no-op"
     fi
 }
 
