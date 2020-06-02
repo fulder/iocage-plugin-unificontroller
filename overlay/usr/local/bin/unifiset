@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 enable_unifi_poller_service() {
     if [ "$poller_enabled" = "true" ]
     then

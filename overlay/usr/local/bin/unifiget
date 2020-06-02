@@ -1,0 +1,16 @@
+get_unifi_poller_status() {
+    if service unifi-poller status > /dev/null
+    then
+        echo "unifi_poller_enable=true"
+    else
+        echo "unifi_poller_enable=false"
+    fi
+}
+
+
+if [ "$1" == "unifi_poller_enable" ]
+then
+    get_unifi_poller_status
+else
+    echo "Unknwon option"
+fi
