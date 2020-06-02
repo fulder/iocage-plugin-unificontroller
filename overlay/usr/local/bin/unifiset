@@ -1,7 +1,9 @@
 #!/bin/sh
 
 
-unifi_poller() {
+enable_unifi_poller_service() {
+    poller_enabled = $1
+
     if [ "$poller_enabled" = "true" ]
     then
         service unifi_poller start
@@ -10,9 +12,9 @@ unifi_poller() {
     fi
 }
 
-
-case $1 in
-	unifi_poller_enable) 	poller_enabled="$2"
- 		set_poller ;;
-	*) echo "Unknown option" ;;
-esac
+if [ "$1" == "unifi_poller_enable" ]
+then
+    enable_unifi_poller_service $2
+else
+    echo "Unknwon option"
+fi
