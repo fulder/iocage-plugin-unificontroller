@@ -12,6 +12,7 @@ enable_unifi_poller_service() {
         sysrc -f /etc/rc.conf -x unifi_poller_enable
     else
         echo "Invalid unifi_poller_enable value. Accepted values: true/false"
+        exit 1
     fi
 }
 
