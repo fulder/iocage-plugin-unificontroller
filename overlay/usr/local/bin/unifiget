@@ -1,3 +1,5 @@
+#!/bin/sh
+
 get_unifi_poller_status() {
     if sysrc -c -q unifi_poller_enable
     then
