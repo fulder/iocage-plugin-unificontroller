@@ -13,9 +13,9 @@ enable_unifi_poller_service() {
             pkg install -y unifi-poller-2.0.0_760.amd64.txz
         fi
 
-        echo "Make sure to configure unifi_poller using /usr/local/etc/unifi-poller/up.conf"
         sysrc -f /etc/rc.conf unifi_poller_enable="YES"
         service unifi_poller start
+        echo "Make sure to configure unifi_poller using /usr/local/etc/unifi-poller/up.conf"
     else
         service unifi_poller stop
         sysrc -f /etc/rc.conf unifi_poller_enable="NO"
