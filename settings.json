@@ -7,7 +7,7 @@
       "type": "bool",
       "name": "Unifi Poller Enable",
       "description": "Enable Unifi Poller plugin",
-      "default": true,
+      "default": false,
       "requirerestart": false
     }
   }
